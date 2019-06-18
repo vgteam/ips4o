@@ -34,9 +34,7 @@
  *****************************************************************************/
 
 #pragma once
-#ifdef _OPENMP
 #include <omp.h>
-#endif  // _OPENMP
 
 #ifdef _REENTRANT
 #include <algorithm>
@@ -49,8 +47,6 @@
 #endif  // _REENTRANT
 
 namespace ips4o {
-
-#ifdef _OPENMP
 
 /**
  * A thread pool using OpenMP.
@@ -106,8 +102,6 @@ class OpenMPThreadPool {
  private:
     int num_threads_;
 };
-
-#endif  // _OPENMP
 
 
 #ifdef _REENTRANT
@@ -202,10 +196,6 @@ class StdThreadPool {
 
 #endif  // _REENTRANT
 
-#ifdef _OPENMP
 using DefaultThreadPool = OpenMPThreadPool;
-#elif defined(_REENTRANT)
-using DefaultThreadPool = StdThreadPool;
-#endif
 
 }  // namespace ips4o

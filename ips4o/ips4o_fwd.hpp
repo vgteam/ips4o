@@ -69,13 +69,11 @@ class Sorter {
 
     void sequential(iterator begin, iterator end);
 
-#if defined(_REENTRANT) || defined(_OPENMP)
     template <class TaskSorter>
     void parallelPrimary(iterator begin, iterator end, SharedData& shared,
                          int num_threads, TaskSorter&& task_sorter);
 
     void parallelSecondary(SharedData& shared, int id, int num_threads);
-#endif
 
  private:
     LocalData& local_;
@@ -142,7 +140,6 @@ inline void sort(It begin, It end, Comp comp);
 template <class It>
 inline void sort(It begin, It end);
 
-#if defined(_REENTRANT) || defined(_OPENMP)
 namespace parallel {
 
 template <class It, class Comp>
@@ -152,5 +149,4 @@ template <class It>
 inline void sort(It begin, It end);
 
 }  // namespace parallel
-#endif
 }  // namespace ips4o
