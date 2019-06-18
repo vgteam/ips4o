@@ -80,7 +80,6 @@ void sort(It begin, It end) {
     ips4o::sort<Config<>>(std::move(begin), std::move(end), std::less<>());
 }
 
-#if defined(_REENTRANT) || defined(_OPENMP)
 namespace parallel {
 
 /**
@@ -140,5 +139,5 @@ void sort(It begin, It end) {
 }
 
 }  // namespace parallel
-#endif  // _REENTRANT || _OPENMP
+
 }  // namespace ips4o
