@@ -34,7 +34,6 @@
  *****************************************************************************/
 
 #pragma once
-#if defined(_REENTRANT) || defined(_OPENMP)
 
 #include <algorithm>
 #include <atomic>
@@ -208,4 +207,3 @@ class ParallelSorter {
 };
 
 }  // namespace ips4o
-#endif  // _REENTRANT || _OPENMP
